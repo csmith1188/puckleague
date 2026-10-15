@@ -1,0 +1,7 @@
+<%- include('../partials/header') %>
+<h1>Terms</h1>
+<h3><%= term.name %></h3>
+<p><%= term.text %></p>
+<%- include('../partials/notes', { notes: term.notes }) %>
+<p><a href="/terms">← All Terms</a></p>
+<%- include('../partials/footer') %>

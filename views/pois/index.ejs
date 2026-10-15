@@ -1,0 +1,9 @@
+<%- include('../partials/header') %>
+<h1>Points of Interest</h1>
+<% pois.forEach(function(poi) { %>
+<h2><a href="/pois/<%= toSlug(poi.name) %>"><%= poi.name %></a></h2>
+<p class="desc"><%= poi.description %></p>
+<p><%= poi.text %></p>
+<%- include('../partials/notes', { notes: poi.notes }) %>
+<% }); %>
+<%- include('../partials/footer') %>

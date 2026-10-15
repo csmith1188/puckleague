@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+<h1>Pucks</h1>
+<h2><%= puck.name %></h2>
+<p class="pucktype"><%= puck.type %><%= puck.subtype ? ' / ' + puck.subtype : '' %></p>
+<% if (puck.found) { %>
+<p class="pucktype">Found: <%= puck.found %></p>
+<% } %>
+<p class="desc"><%= puck.description %></p>
+
+<% if (puck.se) {
+    Object.keys(puck.se).forEach(function(mode) {
+        if (puck.se[mode] && puck.se[mode].length) { %>
+<h3><%= mode %></h3>
+<%          puck.se[mode].forEach(function(rule) { %>
+<p class="rule"><%= rule.text %></p>
+<%- include('../partials/notes', { notes: rule.notes }) %>
+<%          });
+        }
+    });
+} %>
+
+<p><a href="/pucks">← All Pucks</a></p>
+<%- include('../partials/footer') %>

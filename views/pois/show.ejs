@@ -1,0 +1,8 @@
+<%- include('../partials/header') %>
+<h1>Points of Interest</h1>
+<h2><%= poi.name %></h2>
+<p class="desc"><%= poi.description %></p>
+<p><%= poi.text %></p>
+<%- include('../partials/notes', { notes: poi.notes }) %>
+<p><a href="/pois">← All Points of Interest</a></p>
+<%- include('../partials/footer') %>

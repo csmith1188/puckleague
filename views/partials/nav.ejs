@@ -1,0 +1,19 @@
+<%
+  const path = typeof currentPath !== 'undefined' ? currentPath : '';
+  function active(prefix) {
+    if (prefix === '/') return path === '/' ? ' active' : '';
+    return path === prefix || path.startsWith(prefix + '/') ? ' active' : '';
+  }
+%>
+<div id="navBar">
+    <a href="/" class="button clickable<%= active('/') %>">Home</a>
+    <a href="/battles" class="button clickable<%= active('/battles') %>">Battles</a>
+    <a href="/terms" class="button clickable<%= active('/terms') %>">Terms</a>
+    <a href="/pucks" class="button clickable<%= active('/pucks') %>">Pucks</a>
+    <a href="/slammers" class="button clickable<%= active('/slammers') %>">Slammers</a>
+    <a href="/statuses" class="button clickable<%= active('/statuses') %>">Statuses</a>
+    <a href="/zones" class="button clickable<%= active('/zones') %>">Zones</a>
+    <a href="/mart" class="button clickable<%= active('/mart') %>">Mart</a>
+    <a href="/pois" class="button clickable<%= active('/pois') %>">POIs</a>
+    <a href="/adventure" class="button clickable<%= active('/adventure') %>">Adventure</a>
+</div>

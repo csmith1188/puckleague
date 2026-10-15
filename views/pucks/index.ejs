@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+<h1>Pucks</h1>
+
+<form method="get" action="/pucks" class="filters">
+    <label>Type
+        <input type="text" name="type" value="<%= filters.type %>" placeholder="e.g. Item">
+    </label>
+    <label>Found
+        <input type="text" name="found" value="<%= filters.found %>" placeholder="e.g. mart">
+    </label>
+    <button type="submit" class="button clickable">Filter</button>
+    <% if (filters.type || filters.found) { %>
+    <a href="/pucks" class="button clickable">Clear</a>
+    <% } %>
+</form>
+
+<% if (!pucks.length) { %>
+<p>No pucks match these filters.</p>
+<% } %>
+
+<% pucks.forEach(function(puck) { %>
+<h2><a href="/pucks/<%= toSlug(puck.name) %>"><%= puck.name %></a></h2>
+<p class="pucktype"><%= puck.type %><%= puck.subtype ? ' / ' + puck.subtype : '' %></p>
+<p class="desc"><%= puck.description %></p>
+<% }); %>
+<%- include('../partials/footer') %>

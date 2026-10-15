@@ -1,0 +1,75 @@
+<%- include('layout-start') %>
+
+<div class="adv-header">
+    <h1>Game Master Desk</h1>
+    <div class="adv-userbar">
+        <span><%= adventureUser.displayName %></span>
+        <a class="button clickable" href="/adventure">Player hub</a>
+        <a class="button clickable" href="/adventure/logout">Log out</a>
+    </div>
+</div>
+
+<section class="adv-panel">
+    <h2>Transfer Master List</h2>
+    <p>Facilitate the real-world handoff, then close the request. Withdraw removes the item from digital inventory; deposit adds it.</p>
+    <table class="adv-table" id="gmTransferTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Trainer</th>
+                <th>Direction</th>
+                <th>Item</th>
+                <th>Notes</th>
+                <th>Opened</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (openTransfers.length) { %>
+                <% openTransfers.forEach(function (t) { %>
+                    <tr data-id="<%= t.id %>">
+                        <td>#<%= t.id %></td>
+                        <td><%= t.displayName %></td>
+                        <td><%= t.direction %></td>
+                        <td><strong><%= t.itemName %></strong></td>
+                        <td><%= t.notes || '—' %></td>
+                        <td><%= t.createdAt %></td>
+                        <td>
+                            <button type="button" class="button clickable gm-close-btn" data-id="<%= t.id %>">Close</button>
+                        </td>
+                    </tr>
+                <% }) %>
+            <% } else { %>
+                <tr><td colspan="7" class="note">No open transfers.</td></tr>
+            <% } %>
+        </tbody>
+    </table>
+</section>
+
+<section class="adv-panel">
+    <h2>Players on the Board</h2>
+    <table class="adv-table">
+        <thead>
+            <tr>
+                <th>Trainer</th>
+                <th>Zone</th>
+                <th>Travel until</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% players.forEach(function (p) { %>
+                <tr>
+                    <td><%= p.displayName %></td>
+                    <td><%= p.currentZone %></td>
+                    <td><%= p.travelUntil > Date.now() ? new Date(p.travelUntil).toLocaleTimeString() : '—' %></td>
+                </tr>
+            <% }) %>
+            <% if (!players.length) { %>
+                <tr><td colspan="3" class="note">No players have joined yet.</td></tr>
+            <% } %>
+        </tbody>
+    </table>
+</section>
+
+<script src="/js/adventure.js"></script>
+<%- include('layout-end') %>

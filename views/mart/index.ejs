@@ -1,0 +1,10 @@
+<%- include('../partials/header') %>
+<h1>PokeMart</h1>
+<% mart.forEach(function(item) { %>
+<h2>
+    <a href="/pucks/<%= toSlug(item.name) %>"><%= item.name %></a>
+</h2>
+<p class="pucktype">Cost: <%= item.cost %><%= item.std ? ' (standard)' : '' %></p>
+<%- include('../partials/notes', { notes: item.notes }) %>
+<% }); %>
+<%- include('../partials/footer') %>

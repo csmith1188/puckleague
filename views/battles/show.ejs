@@ -1,0 +1,34 @@
+<%- include('../partials/header') %>
+<h1>Battles</h1>
+<h2><%= battle.name %></h2>
+<p><%= battle.description %></p>
+
+<h3>General Rules</h3>
+<ol>
+<% battle.general.forEach(function(rule) { %>
+    <li class="rule"><%= rule.text %>
+        <%- include('../partials/notes', { notes: rule.notes }) %>
+    </li>
+<% }); %>
+</ol>
+
+<% ['setup', 'loop', 'end'].forEach(function(stage) { %>
+<h3><%= stage %></h3>
+<ol>
+<%  (battle[stage] || []).forEach(function(rule) { %>
+    <li class="rule"><%= rule.text %>
+        <% if (rule.description && rule.description.length) { %>
+        <ul>
+            <% rule.description.forEach(function(desc) { %>
+            <li><%= desc %></li>
+            <% }); %>
+        </ul>
+        <% } %>
+        <%- include('../partials/notes', { notes: rule.notes }) %>
+    </li>
+<%  }); %>
+</ol>
+<% }); %>
+
+<p><a href="/battles">← All Battles</a></p>
+<%- include('../partials/footer') %>

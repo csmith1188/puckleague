@@ -1,0 +1,216 @@
+<%- include('layout-start') %>
+
+<div class="adv-header">
+    <h1>Adventure Mode</h1>
+    <div class="adv-userbar">
+        <span>Trainer: <strong><%= adventureUser.displayName %></strong></span>
+        <% if (adventureUser.isGm) { %>
+            <a class="button clickable" href="/adventure/gm">GM Desk</a>
+        <% } %>
+        <a class="button clickable" href="/adventure/logout">Log out</a>
+    </div>
+</div>
+
+<% if (!player) { %>
+<section class="adv-panel">
+    <h2>Join the Adventure</h2>
+    <p>Pick a starting city (not Cinnabar Island or Fuchsia City), then play with your real pucks while the Game Master coordinates the digital board.</p>
+    <form id="joinForm" class="adv-form">
+        <label>
+            Start zone
+            <select name="startZone" id="startZone">
+                <% startCities.forEach(function (city) { %>
+                    <option value="<%= city %>"><%= city %></option>
+                <% }) %>
+            </select>
+        </label>
+        <button type="submit" class="button clickable">Join Adventure</button>
+    </form>
+</section>
+<% } else { %>
+
+<div class="adv-grid">
+    <section class="adv-panel adv-map-panel">
+        <h2>Kanto Map</h2>
+        <p class="adv-meta">You are in <strong id="currentZoneLabel"><%= player.currentZone %></strong>
+            <span id="travelStatus" class="<%= travelRemaining > 0 ? '' : 'hidden' %>">
+                — traveling (<span id="travelCountdown"><%= Math.ceil(travelRemaining / 1000) %></span>s)
+            </span>
+        </p>
+        <div class="adv-map-wrap">
+            <svg id="advMap" viewBox="0 0 760 660" role="img" aria-label="Kanto adventure map">
+                <% map.edges.forEach(function (e) {
+                    const na = map.nodes.find(n => n.name === e.a);
+                    const nb = map.nodes.find(n => n.name === e.b);
+                    if (!na || !nb) return;
+                %>
+                    <line class="adv-edge" x1="<%= na.x %>" y1="<%= na.y %>" x2="<%= nb.x %>" y2="<%= nb.y %>" />
+                <% }) %>
+                <% map.nodes.forEach(function (n) {
+                    const isHere = n.name === player.currentZone;
+                    const shape = n.type === 'city' ? 'rect' : (n.type === 'route' ? 'hex' : 'circle');
+                %>
+                    <g class="adv-node <%= isHere ? 'is-here' : '' %>" data-zone="<%= n.name %>" data-type="<%= n.type %>">
+                        <% if (shape === 'rect') { %>
+                            <rect x="<%= n.x - 36 %>" y="<%= n.y - 14 %>" width="72" height="28" rx="3" />
+                        <% } else if (shape === 'hex') { %>
+                            <polygon points="<%= n.x %>,<%= n.y-16 %> <%= n.x+18 %>,<%= n.y-6 %> <%= n.x+18 %>,<%= n.y+10 %> <%= n.x %>,<%= n.y+16 %> <%= n.x-18 %>,<%= n.y+10 %> <%= n.x-18 %>,<%= n.y-6 %>" />
+                        <% } else { %>
+                            <circle cx="<%= n.x %>" cy="<%= n.y %>" r="14" />
+                        <% } %>
+                        <title><%= n.name %><%= n.poi.length ? ' — POI: ' + n.poi.join(', ') : '' %></title>
+                        <text x="<%= n.x %>" y="<%= n.y + 28 %>" text-anchor="middle"><%= n.name %></text>
+                    </g>
+                <% }) %>
+            </svg>
+        </div>
+        <div id="zoneDetail" class="adv-zone-detail">
+            <% if (zone) { %>
+                <h3><%= zone.name %></h3>
+                <p class="desc"><%= zone.description %></p>
+                <% if (pois.length) { %>
+                    <h4>Points of Interest</h4>
+                    <ul>
+                        <% pois.forEach(function (p) { %>
+                            <li><strong><%= p.name %></strong><% if (p.text) { %>: <%= p.text %><% } %></li>
+                        <% }) %>
+                    </ul>
+                <% } %>
+            <% } %>
+        </div>
+    </section>
+
+    <aside class="adv-side">
+        <section class="adv-panel">
+            <h2>Move</h2>
+            <p class="adv-meta">Cost: <strong><%= moveCost %></strong> DigiPogs + <%= travelMs / 1000 %>s travel lock</p>
+            <ul id="neighborList" class="adv-neighbor-list">
+                <% neighbors.forEach(function (n) { %>
+                    <li>
+                        <button type="button"
+                            class="button clickable move-btn"
+                            data-to="<%= n.to %>"
+                            <%= !n.canMove || travelRemaining > 0 ? 'disabled' : '' %>>
+                            → <%= n.to %>
+                        </button>
+                        <% if (n.req && n.req.length) { %>
+                            <span class="adv-req">req: <%= n.req.join(', ') %></span>
+                        <% } %>
+                        <% if (!n.canMove && n.missing && n.missing.length) { %>
+                            <span class="adv-missing">need: <%= n.missing.join(', ') %></span>
+                        <% } %>
+                    </li>
+                <% }) %>
+                <% if (!neighbors.length) { %>
+                    <li class="note">No connected routes from here.</li>
+                <% } %>
+            </ul>
+        </section>
+
+        <section class="adv-panel">
+            <h2>PokéMart</h2>
+            <% if (martItems.length) { %>
+                <p class="adv-meta">Prices = rulebook pogs × <%= digipogMultiplier %> DigiPogs. Purchases go to digital inventory.</p>
+                <ul id="martList" class="adv-mart-list">
+                    <% martItems.forEach(function (item) { %>
+                        <li>
+                            <span><%= item.name %> — <%= item.digipogs %> DigiPogs</span>
+                            <button type="button" class="button clickable shop-btn" data-item="<%= item.name %>" data-cost="<%= item.digipogs %>">Buy</button>
+                        </li>
+                    <% }) %>
+                </ul>
+            <% } else { %>
+                <p class="note">No PokéMart at this zone.</p>
+            <% } %>
+        </section>
+
+        <section class="adv-panel">
+            <h2>Digital Inventory</h2>
+            <ul id="inventoryList">
+                <% if (inventory.length) { %>
+                    <% inventory.forEach(function (row) { %>
+                        <li>
+                            <%= row.itemName %> ×<%= row.qty %>
+                            <button type="button" class="button clickable transfer-btn" data-item="<%= row.itemName %>" data-direction="withdraw">Request withdraw</button>
+                        </li>
+                    <% }) %>
+                <% } else { %>
+                    <li class="note">Empty — buy at a mart or deposit a physical puck.</li>
+                <% } %>
+            </ul>
+            <div class="adv-deposit">
+                <label>
+                    Deposit item (physical → digital)
+                    <input type="text" id="depositItem" placeholder="e.g. Berry" list="itemSuggestions">
+                </label>
+                <datalist id="itemSuggestions">
+                    <% martItems.forEach(function (item) { %>
+                        <option value="<%= item.name %>">
+                    <% }) %>
+                    <option value="Berry">
+                    <option value="Bike">
+                    <option value="Poké Ball">
+                    <option value="Potion">
+                    <option value="Great Ball">
+                    <option value="Ultra Ball">
+                    <option value="Energy Puck">
+                    <option value="Switch">
+                    <option value="Focus Energy">
+                    <option value="Full Heal">
+                    <option value="Power Stone">
+                    <option value="Heavy Ball">
+                    <option value="PokéFlute">
+                    <option value="Silph Scope">
+                </datalist>
+                <button type="button" id="depositBtn" class="button clickable">Request deposit</button>
+            </div>
+        </section>
+
+        <section class="adv-panel">
+            <h2>Open Transfers</h2>
+            <ul id="transferList">
+                <% if (myTransfers.length) { %>
+                    <% myTransfers.forEach(function (t) { %>
+                        <li>
+                            #<%= t.id %> <%= t.direction %> <strong><%= t.itemName %></strong>
+                            <button type="button" class="button clickable cancel-transfer-btn" data-id="<%= t.id %>">Cancel</button>
+                        </li>
+                    <% }) %>
+                <% } else { %>
+                    <li class="note">No open transfer requests.</li>
+                <% } %>
+            </ul>
+            <p class="note">Game Master facilitates the real-world handoff, then closes the request.</p>
+        </section>
+
+        <section class="adv-panel">
+            <h2>Actions</h2>
+            <p class="adv-meta">Move and Shop are live. Other actions are placeholders for now.</p>
+            <div class="adv-actions">
+                <button type="button" class="button clickable" disabled title="Coming soon">Ante Battle</button>
+                <button type="button" class="button clickable" disabled title="Coming soon">Training Battle</button>
+                <button type="button" class="button clickable" disabled title="Coming soon">Sanctioned Battle</button>
+                <button type="button" class="button clickable" disabled title="Coming soon">Wild Battle</button>
+                <button type="button" class="button clickable" disabled title="Coming soon">Sanctioned Trade</button>
+                <button type="button" class="button clickable" disabled title="Coming soon">Discover Pokémon</button>
+                <button type="button" class="button clickable" disabled title="Coming soon">Search for Item</button>
+            </div>
+        </section>
+    </aside>
+</div>
+
+<script>
+  window.ADVENTURE = {
+    travelUntil: <%= player.travelUntil || 0 %>,
+    moveCost: <%= moveCost %>,
+    currentZone: <%- JSON.stringify(player.currentZone) %>
+  };
+</script>
+<script src="/js/adventure.js"></script>
+<% } %>
+
+<% if (!player) { %>
+<script src="/js/adventure.js"></script>
+<% } %>
+
+<%- include('layout-end') %>

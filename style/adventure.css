@@ -1,0 +1,205 @@
+.adventure-body {
+    background: linear-gradient(160deg, #0b6bcb 0%, #1a8cff 45%, #5eb0ff 100%);
+}
+
+.adventure-content {
+    width: min(1100px, 96%);
+    max-width: 1100px;
+}
+
+.adv-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.adv-header h1 {
+    margin: 0;
+}
+
+.adv-userbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.adv-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 1rem;
+}
+
+@media (max-width: 900px) {
+    .adv-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.adv-panel {
+    background: rgba(255, 255, 255, 0.35);
+    border: 2px solid #000;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.adv-panel h2 {
+    margin-top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.adv-meta {
+    font-size: 0.95em;
+}
+
+.adv-map-wrap {
+    overflow: auto;
+    background: #e8f4ff;
+    border: 1px solid #333;
+    border-radius: 4px;
+    max-height: 520px;
+}
+
+#advMap {
+    width: 100%;
+    min-width: 640px;
+    height: auto;
+    display: block;
+}
+
+.adv-edge {
+    stroke: #555;
+    stroke-width: 2;
+}
+
+.adv-node rect,
+.adv-node polygon,
+.adv-node circle {
+    fill: #fff34f;
+    stroke: #000;
+    stroke-width: 1.5;
+}
+
+.adv-node[data-type="route"] polygon {
+    fill: #a5d4ff;
+}
+
+.adv-node[data-type="location"] circle {
+    fill: #ffb4b4;
+}
+
+.adv-node.is-here rect,
+.adv-node.is-here polygon,
+.adv-node.is-here circle {
+    fill: #4cff88;
+    stroke-width: 3;
+}
+
+.adv-node text {
+    font-size: 9px;
+    fill: #111;
+    pointer-events: none;
+}
+
+.adv-neighbor-list,
+.adv-mart-list,
+#inventoryList,
+#transferList {
+    list-style: none;
+    padding-left: 0;
+}
+
+.adv-neighbor-list li,
+.adv-mart-list li,
+#inventoryList li,
+#transferList li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.45rem;
+    text-align: left;
+}
+
+.adv-req,
+.adv-missing {
+    font-size: 0.85em;
+    font-style: italic;
+}
+
+.adv-missing {
+    color: #7a0000;
+}
+
+.adv-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.adv-actions .button[disabled],
+.button[disabled] {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.adv-deposit {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: end;
+    margin-top: 0.75rem;
+}
+
+.adv-deposit label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1;
+    min-width: 140px;
+}
+
+.adv-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: end;
+}
+
+.adv-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.adv-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.adv-table th,
+.adv-table td {
+    border: 1px solid #333;
+    padding: 0.35rem 0.5rem;
+    text-align: left;
+    font-size: 0.92em;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.adv-zone-detail {
+    margin-top: 0.75rem;
+}
+
+.adv-zone-detail h3 {
+    left: 0;
+    width: 100%;
+}

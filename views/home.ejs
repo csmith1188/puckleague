@@ -1,0 +1,53 @@
+<%- include('partials/header') %>
+
+<% introduction.forEach(function(point) { %>
+<h1><%= point.header %></h1>
+<% if (point.body) {
+    point.body.split(/\r?\n/).forEach(function(para) {
+        if (para.trim()) { %>
+<p><%= para %></p>
+<%      }
+    });
+} %>
+<% }); %>
+
+<% changelog.forEach(function(point) { %>
+<h1><%= point.header %></h1>
+<% if (point.date) {
+    const d = new Date(point.date); %>
+<p class="rule"><%= (d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear() %></p>
+<% } %>
+<% if (point.body) {
+    point.body.split(/\r?\n/).forEach(function(para) {
+        if (para.trim()) { %>
+<p><%= para %></p>
+<%      }
+    });
+} %>
+<% if (point.changes) {
+    point.changes.forEach(function(change) { %>
+<h3><%= change.rule %></h3>
+<%      if (change.description) {
+            change.description.forEach(function(desc) {
+                if (desc) {
+                    desc.split(/\r?\n/).forEach(function(para) {
+                        if (para.trim()) { %>
+<p class="desc"><%= para %></p>
+<%                      }
+                    });
+                }
+            });
+        }
+        if (change.text) {
+            change.text.split(/\r?\n/).forEach(function(para) {
+                if (para.trim()) { %>
+<p class="rule"><%= para %></p>
+<%              }
+            });
+        } %>
+<%- include('partials/notes', { notes: change.notes }) %>
+<%  });
+} %>
+<% }); %>
+
+<%- include('partials/footer') %>

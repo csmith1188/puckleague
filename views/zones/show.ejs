@@ -1,0 +1,83 @@
+<%- include('../partials/header') %>
+<h1>Zones</h1>
+<h2><%= zone.name %></h2>
+<p class="pucktype">Type: <%= zone.type %></p>
+<p class="desc"><%= zone.description %></p>
+
+<% if (zone.pkmn && zone.pkmn.length) { %>
+<h3>Pokemon</h3>
+<ul>
+<%  zone.pkmn.forEach(function(pkmn) { %>
+    <li>
+        <% if (slammerExists(pkmn)) { %>
+        <a href="/slammers/<%= toSlug(pkmn) %>"><%= pkmn %></a>
+        <% } else { %>
+        <%= pkmn %>
+        <% } %>
+    </li>
+<%  }); %>
+</ul>
+<% } %>
+
+<% if (zone.type === 'city' && martItems.length) { %>
+<h3>PokeMart Items</h3>
+<ul>
+<%  martItems.forEach(function(item) { %>
+    <li>
+        <% if (puckExists(item)) { %>
+        <a href="/pucks/<%= toSlug(item) %>"><%= item %></a>
+        <% } else { %>
+        <%= item %>
+        <% } %>
+    </li>
+<%  }); %>
+</ul>
+<% } %>
+
+<% if (zone.poi && zone.poi.length) { %>
+<h3>Points of Interest</h3>
+<ul>
+<%  zone.poi.forEach(function(poi) { %>
+    <li>
+        <% if (poiExists(poi)) { %>
+        <a href="/pois/<%= toSlug(poi) %>"><%= poi %></a>
+        <% } else { %>
+        <%= poi %>
+        <% } %>
+    </li>
+<%  }); %>
+</ul>
+<% } %>
+
+<% if (zone.discoveries && zone.discoveries.length) { %>
+<h3>Discoveries</h3>
+<ul>
+<%  zone.discoveries.forEach(function(disc) { %>
+    <li>
+        <% if (puckExists(disc)) { %>
+        <a href="/pucks/<%= toSlug(disc) %>"><%= disc %></a>
+        <% } else { %>
+        <%= disc %>
+        <% } %>
+    </li>
+<%  }); %>
+</ul>
+<% } %>
+
+<% if (connections && connections.length) { %>
+<h3>Connects to</h3>
+<ul>
+<%  connections.forEach(function(connection) {
+        const neighbor = otherZoneName(connection, zone.name); %>
+    <li class="clickable">
+        <a href="/zones/<%= toSlug(neighbor) %>"><%= neighbor %></a>
+        <% if (connection.req && connection.req.length) { %>
+        <span class="note"> (requires: <%= connection.req.join(', ') %>)</span>
+        <% } %>
+    </li>
+<%  }); %>
+</ul>
+<% } %>
+
+<p><a href="/zones">← All Zones</a></p>
+<%- include('../partials/footer') %>

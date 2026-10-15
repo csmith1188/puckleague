@@ -1,0 +1,7 @@
+<% if (typeof notes !== 'undefined' && notes && notes.length) { %>
+<ul>
+    <% notes.forEach(function(note) { %>
+    <li class="note"><%= note %></li>
+    <% }); %>
+</ul>
+<% } %>

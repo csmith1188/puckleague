@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+<h1>Zones</h1>
+
+<form method="get" action="/zones" class="filters">
+    <label>Type
+        <select name="type">
+            <option value="">All</option>
+            <option value="city"<%= filters.type === 'city' ? ' selected' : '' %>>City</option>
+            <option value="route"<%= filters.type === 'route' ? ' selected' : '' %>>Route</option>
+            <option value="location"<%= filters.type === 'location' ? ' selected' : '' %>>Location</option>
+        </select>
+    </label>
+    <button type="submit" class="button clickable">Filter</button>
+    <% if (filters.type) { %>
+    <a href="/zones" class="button clickable">Clear</a>
+    <% } %>
+</form>
+
+<% if (!zones.length) { %>
+<p>No zones match this filter.</p>
+<% } %>
+
+<% zones.forEach(function(zone) { %>
+<h2><a href="/zones/<%= toSlug(zone.name) %>"><%= zone.name %></a></h2>
+<p class="pucktype">Type: <%= zone.type %></p>
+<p class="desc"><%= zone.description %></p>
+<% }); %>
+<%- include('../partials/footer') %>

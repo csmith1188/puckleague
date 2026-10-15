@@ -1,0 +1,52 @@
+<%- include('../partials/header') %>
+<h1>Slammers</h1>
+<h2><%= slammer.name %></h2>
+<p class="pucktype">PokeDex #: <%= slammer.pokedex %></p>
+<% if (slammer.tags && slammer.tags.length) { %>
+<p class="pucktype">Tags: <%= slammer.tags.join(' ') %></p>
+<% } %>
+<p class="pucktype">Pokeball Strength: <%= slammer.ballStrength %></p>
+<p class="desc"><%= slammer.description %></p>
+
+<% if (slammer.ability) { %>
+<h3><%= slammer.ability.name %></h3>
+<%  Object.keys(slammer.ability).forEach(function(abil) {
+        if (abil !== 'name' && slammer.ability[abil] && slammer.ability[abil].text) { %>
+<ul>
+    <li class="rule"><%= abil %>
+        <ul>
+            <li><%= slammer.ability[abil].text %></li>
+        </ul>
+        <% if (slammer.ability[abil].notes && slammer.ability[abil].notes.length) { %>
+        <ul>
+            <% slammer.ability[abil].notes.forEach(function(note) { %>
+            <li class="note"><%= note %></li>
+            <% }); %>
+        </ul>
+        <% } %>
+    </li>
+</ul>
+<%      }
+    });
+} %>
+
+<% if (slammer.pucks) {
+    Object.keys(slammer.pucks).forEach(function(serial) {
+        const puck = slammer.pucks[serial]; %>
+<h3><%= puck.subname %></h3>
+<p class="pucktype">Serial #: <%= serial %></p>
+<%      if (puck.img) { %>
+<img class="slammer-img" src="<%= puck.img %>" alt="<%= puck.subname %>">
+<%      } %>
+<ul>
+<%      Object.keys(puck).forEach(function(stat) {
+            if (stat !== 'img' && stat !== 'subname') { %>
+    <li><%= stat %>: <%= puck[stat] %></li>
+<%          }
+        }); %>
+</ul>
+<%  });
+} %>
+
+<p><a href="/slammers">← All Slammers</a></p>
+<%- include('../partials/footer') %>

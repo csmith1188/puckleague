@@ -1,0 +1,9 @@
+<%- include('../partials/header') %>
+<h1>Statuses</h1>
+<% statuses.forEach(function(status) { %>
+<h2><a href="/statuses/<%= toSlug(status.name) %>"><%= status.name %></a></h2>
+<p class="desc"><%= status.description %></p>
+<p><%= status.text %></p>
+<%- include('../partials/notes', { notes: status.notes }) %>
+<% }); %>
+<%- include('../partials/footer') %>

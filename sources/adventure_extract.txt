@@ -1,0 +1,266 @@
+
+
+===== PAGE 1 =====
+Last Update: November 29th, 2022 
+Trainer: 
+Long Actions Made  
+Sanctioned Battles  
+Wins  
+Pokémon Caught/Discovered  
+ 
+ 
+HM/TM Pucks 
+In a PokéPucks Adventure, if you have an eligible Pokémon puck and the listed HM/TM puck in 
+your collection, that Pokémon puck is considered to have that Slammer Ability. 
+ 
+In a battle, if the listed HM/TM puck is in your Power Stack, and an eligible Pokémon puck is your 
+slammer, that Pokémon puck is considered to have that Slammer Ability. 
+ 
+HM01 Cut Any Pokémon with an Energy Type of Grass 
+After making all of your attacks on your turn, you may make 1 additional attack. You may only 
+pick up 1 puck from this attack. 
+ 
+HM02 Fly  
+When making a Move long action, you may move to any City Zone. 
+ 
+HM03 Surf Any Pokémon with an Energy Type of Water 
+After you top-off, you may move up to 2 pucks from your Prize Stack to the top of the Arena 
+Stack. 
+ 
+HM04 Dig Any Pokémon with an Energy Type of Fighting 
+When determining the number of attacks to make on your turn, you may choose to reduce that 
+number to 1. If you do, the next time you determine the number of attacks to make on your 
+turn, add 1 to that number. 
+ 
+Last Update: November 29th, 2022 
+PokéPucks 
+Adventure Rulebook 
+Kanto Region 
+ 
+Contents 
+Terms .................................................................................................................................................. 2 
+Starting a Game.................................................................................................................................. 2 
+Ways to Play ....................................................................................................................................... 3 
+Gameplay Loop .................................................................................................................................. 3 
+Actions ................................................................................................................................................ 4 
+Long Actions ....................................................................................................................................... 4 
+Zones Chart ........................................................................................................................................ 5 
+HM/TM Pucks ..................................................................................................................................... 6 
+ 
+ 
+  
+PokéPucks is a game of skill, strategy, and risk. It is not gambling, though you do stand to gain and lose 
+pucks. When you play this game, you will choose the pucks that you own that will best help you win, and 
+claim your opponent’s pucks for your own, but you opponent will be doing the same. If you cannot bear to 
+lose your favorite pucks, do not play with them. 
+
+===== PAGE 2 =====
+Last Update: November 29th, 2022 
+Terms 
+In addition to the terms below, refer to the terms in the PokéPucks Rulebook. 
+ Action Order: The order in which players take (long) actions on a competitive day. 
+ Action Order Sequence: A duration of every player taking their (long) actions in the action 
+order. 
+ Badges: A mark of achievement on a Trainer License to denote that you won a Sanctioned 
+Battle against the Game Master while in the associated city zone. 
+ Buy: Pay the Game Master the price of a chosen Item Puck in the Items Chart to move one 
+of those pucks from the Game Master’s collection to your collection. 
+ Discover: The Game Master shuffles a puck representing the Pokémon you are attempting 
+to discover and as many Sandbag pucks needed to make a stack of eight pucks. The Game 
+Master then moves that stack to the Arena Stack. You may make one throw. If you flip the 
+puck representing the Pokémon, the Pokémon is discovered. 
+ Game: All Trainer Licenses, players, and the map in a PokéPucks Adventure. 
+ Game Day: A number of (long) actions or action order sequences determined by the Game 
+Master. 
+ Game Master: The player who manages the game for the rest of the players. 
+ Game Master’s Collection: A selection of pucks allocated for the purpose of this game. These 
+can be from the Game Master’s personal collection, or a collection of pucks contributed to 
+by the involved players. 
+ Game Piece: The object you choose to denote which zone your game piece is in on the map. 
+ Gym: A point of interest in a zone that allows Training Battles and Sanctioned Battles for 
+badges. 
+ Path: A connector between two zones. Some paths require a Slammer Ability or Item puck 
+to make a Move action. 
+ Pay: Move a number of pucks from your collection to the Game Master’s collection. 
+ Sanctioned Battle: A battle in which the Game Master is participating or refereeing. 
+ Status: A record on a player’s Trainer License that indicates their state in the game. 
+ Trainer License: A record that tracks the player’s name, the date they player began playing, 
+the number of ( long) actions and moves they’ve made, the number of Sanctioned Battles 
+they have played and won, the number of Pokémon they have discovered and caught, their 
+Status, and the gym badges they have earned. 
+ Zone: A City, Location, or Route on the Zones chart. 
+ 
+ 
+Starting a Game 
+ The players select one of them to be the Game Master. 
+ Each player except the Game Master gets a Trainer License and a game piece.  
+ Each player places their game piece in a zone on the map from a selection of zones decided 
+by the Game Master (typically any city zone except Cinnabar Island and Fuchsia City).  
+Last Update: November 29th, 2022 
+ 
+
+
+===== PAGE 3 =====
+Last Update: November 29th, 2022 
+Route PokéMart Items Point of Interest Pokémon / Items 
+Route 1   Pidgeot 
+Route 2    
+Route 3    
+Route 4    
+Route 5   Meowth 
+Route 6    
+Route 7    
+Route 8    
+Route 9/10   Machop 
+Route 11    
+Route 12   Fishing Rod 
+Route 13/14/15    
+Route 16   HM02 Fly 
+Route 17/18    
+Route 19    
+Route 20   Lapras 
+Route 21    
+Route 22/23    
+Route 24/25    
+ 
+PokéMart Items 
+Item Puck Price Item Puck Price Item Puck Price 
+Berry 1 Bike 10 Energy 1 
+Focus Energy 2 Full Heal 1 Great Ball 8 
+Heavy Ball 15 Poké Ball 5 Potion 1 
+Power Stone 3 Switch 1 Ultra Ball 11 
+Item Pucks 
+ 
+Bike  
+When making a Move long action, if this puck is in your collection, treat that long 
+action as an action instead. 
+ 
+ 
+Fishing Rod  
+If your game piece is in a Zone that has a connecting path that requires Surf, you 
+may make Discover Pokémon and Wild Battle actions as if your game piece is in 
+the Zone that path connects to. 
+Last Update: November 29th, 2022 
+Ways to Play 
+ Indigo League Challenge 
+o Travel to each city zone with a gym and play a Sanctioned Battled against the Game 
+Master. Each time you win, the Game Master must stamp the appropriate gym badge 
+on your Trainer License. 
+o Once you have 8 gym badges stamped, travel to Indigo Plateau and win four consecutive 
+Sanctioned Battles against the Game Master or a player with the Elite Four Status. 
+ If you win all four battles, and there are four players in the game with the Elite Four 
+Status on their Trainer License, the Elite Four player with the smallest ratio of 
+wins to Sanctioned Battles loses the Elite Four Status, and your Trainer License 
+gains the Elite Four Status. 
+o If you have the Elite Four Status , win a Sanctioned Match against a player with the 
+League Champion Status (or the Game Master if there is none). 
+ If you win, the player with the League Champion Status loses it, and your Trainer 
+License gains the League Champion Status. 
+o Players may choose to only play until the first time a player gains the League Champion 
+Status on their Trainer License. That player is the winner. 
+ Pokédex Completion 
+o Collect one of each non-legendary Pokémon puck in the PokéPucks Rulebook. 
+ If you have a complete “Living Pokédex” (one of each different Pokémon puck at 
+the same time), your Trainer License gains the Professor Status. 
+ After all Pokémon have been discovered, the player with the most discovered 
+Pokémon on their Trainer License gains the Pioneer Status. 
+ Play may choose until a player gains either Status. That player is the winner. 
+ Casual  
+o Hang out with friends and smash some pucks. 
+o It’s just Pokémon and it’s just pucks. This isn’t even canon. Every player is the winner! 
+Gameplay Loop 
+ The Game Master starts a new Game Day. 
+ Players decide if this Game Day is a casual day or competitive day. 
+ If it is a competitive day: 
+o Each player chooses a puck from their collection to use as their slammer. 
+o Each makes one throw at an Arena Stack of eight Sandbag Item pucks. Do not 
+apply special effects. Count the number of pucks they flip. 
+o Order the players from most to least number of pucks they flipped. 
+ If there is a tie, each player that tied that attempts the throw again to 
+break the tie. 
+o The order the players determined this way is now the action order. 
+ If it is a casual day, players take actions and long actions in any order. 
+ If it is a competitive day, players take one action or long action in the action order. 
+o Once all players have taken one action or long action, repeat the action order. 
+ Repeat until the Game Master ends the Game Day. 
+o A Game Day should last until all players have taken at least one long action, or a 
+day has passed in the real world. 
+
+===== PAGE 4 =====
+Last Update: November 29th, 2022 
+Actions 
+To take an action, pay one puck to the Game Master. You may take as many actions as you like 
+per Game Day. 
+ Ante Battle – Play an Ante Battle with other player(s) who want to take this action as well. If 
+it is a competitive day, other players who participate in the Ante Battle are considered to 
+have taken their action in this action order sequence. 
+ Training Battle – Play an Training Battle with other player(s) who also want to take this 
+action. If it is a competitive day , other players who participate in the Ante Battle  are 
+considered to have taken their action in this action order sequence. All players must be in a 
+zone that has a gym to participate. 
+ Shop at the PokéMart – If your game piece is in a Zone that has Items in the Zone Chart, 
+you may buy any number or combination of those Item Pucks. All City Zones have Poké Ball 
+pucks, and Potion Item pucks. 
+ 
+Long Actions 
+To take a long action, pay one puck to the Game Master. You may take one long action per 
+Game Day. 
+ Sanctioned Battle – Play an battle with other player(s) who also want to take this action. If 
+it is a competitive day, other players who participate in the battle are considered to have 
+taken their action in this action order sequence. All players must be in the same Zone to 
+participate. 
+ Wild Battle – Choose a Pokémon that is in the zone your game piece is in on the Zones 
+Chart that has already been Discovered. Start a Wild Battle against the Game Master. The 
+Game Master must use the chosen Pokémon as their slammer. At the end of the game, if 
+your slammer is a Pokéball slammer, move it to the Game Master’s collection. 
+ Move – Choose a path connected to the zone your game piece  is in. If you meet the 
+requirements for that path, move your game piece to the zone the path connects to. 
+ Sanctioned Trade – With the Game Master present and with the other player’s consent, move 
+one Pokémon puck from your collection to that player’s collection, and one Pokémon puck 
+from that player’s collection to your collection. 
+ Discover Pokémon – Pick a Pokémon in the zone your game piece is in. That Pokémon is 
+now considered discovered. 
+ Search for Item – Pick an Item puck in the zone your game piece is in or a Berry Item Puck 
+and move one of those pucks from the Game Master’s collection to your collection. 
+ 
+ 
+  
+Last Update: November 29th, 2022 
+Zones Chart 
+City PokéMart Items Point of Interest Pokémon / Items 
+Celadon City  Rainbow Badge Gym  
+Cerulean City Bike, Switch Cascade Badge Gym  
+Cinnabar Island Full Heal, Ultra Ball Aerodactyl (with Old Amber Item)  
+Fuchsia City Full Heal, Ultra Ball, Focus Energy, Berry Soul Badge Gym  
+Lavender Town Great Ball, Switch, Focus Energy  PokéFlute Item 
+Pallet Town Berry   
+Pewter City Switch, Energy Boulder Badge Gym  
+Saffron City Switch, Energy, Great Ball Marsh Badge Gym  
+Vermilion City Switch, Energy, Great Ball, Berry Thunder Badge Gym  
+Viridian City Berry, Switch, Energy Earth Badge Gym  
+Location PokéMart Items Point of Interest Pokémon / Items 
+Bill’s House   Eevee 
+Celadon 
+Dept Store 
+Berry, Energy, Focus 
+Energy, Full Heal, Great 
+Ball, Power Stone, Switch 
+  
+Celadon Game 
+Corner    
+Cerulean Cave    
+Diglett's Cave    
+Indigo Plateau    
+Mt. Moon   Jigglypuff 
+Pokémon Mansion    
+Pokémon Stadium    
+Pokémon Tower   Gastly 
+Power Plant    
+Rock Tunnel   Onix 
+Safari Zone   Scyther 
+Seafoam Islands    
+Silph Co.   Silph Scope Item 
+Snorlax Blockade   Snorlax 
+The Dojo   Focus Sash 
+Victory Road    
+Viridian Forest   Pikachu 

@@ -1,0 +1,8 @@
+<%- include('../partials/header') %>
+<h1>Terms</h1>
+<% terms.forEach(function(term) { %>
+<h3><a href="/terms/<%= toSlug(term.name) %>"><%= term.name %></a></h3>
+<p><%= term.text %></p>
+<%- include('../partials/notes', { notes: term.notes }) %>
+<% }); %>
+<%- include('../partials/footer') %>

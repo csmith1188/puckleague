@@ -1,0 +1,8 @@
+<%- include('../partials/header') %>
+<h1>Slammers</h1>
+<% slammers.forEach(function(slammer) { %>
+<h2><a href="/slammers/<%= toSlug(slammer.name) %>"><%= slammer.name %></a></h2>
+<p class="pucktype">PokeDex #: <%= slammer.pokedex %></p>
+<p class="desc"><%= slammer.description %></p>
+<% }); %>
+<%- include('../partials/footer') %>

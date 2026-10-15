@@ -1,0 +1,7 @@
+<%- include('../partials/header') %>
+<h1>Battles</h1>
+<% battles.forEach(function(battle) { %>
+<h2><a href="/battles/<%= toSlug(battle.name) %>"><%= battle.name %></a></h2>
+<p><%= battle.description %></p>
+<% }); %>
+<%- include('../partials/footer') %>

@@ -1,0 +1,8 @@
+<%- include('../partials/header') %>
+<h1>Statuses</h1>
+<h2><%= status.name %></h2>
+<p class="desc"><%= status.description %></p>
+<p><%= status.text %></p>
+<%- include('../partials/notes', { notes: status.notes }) %>
+<p><a href="/statuses">← All Statuses</a></p>
+<%- include('../partials/footer') %>
